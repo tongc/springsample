@@ -1,0 +1,9 @@
+spring:
+profiles: production
+logging:
+file: logs/production_app.log
+pattern:
+level:
+org.springframework.web: WARN
+guru.springframework.controllers: WARN
+org.hibernate: WARN
