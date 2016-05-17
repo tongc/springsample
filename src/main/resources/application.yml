@@ -7,3 +7,39 @@ level:
 org.springframework.web: WARN
 guru.springframework.controllers: WARN
 org.hibernate: WARN
+#server.tomcat.accesslog:
+#    # Enable access log:
+#    enabled: true
+#
+#    # Directory in which log files are created. Can be relative to the tomcat base dir or absolute:
+#    directory: C:/LightroomPortable/
+#
+#    # Format pattern for access logs:
+#    # https://tomcat.apache.org/tomcat-8.0-doc/config/valve.html#Access_Log_Valve
+#    pattern: '%h %l %u %t "%r" %s %b %D'
+#
+#    # Log file name suffix:
+#    suffix: .log
+# or to debug what's been logged at
+#     public void service(org.apache.coyote.Request req,
+#                          org.apache.coyote.Response res)
+# inside
+#finally {
+#  // Access log
+#  if (!async && !comet) {
+#      if (postParseSuccess) {
+#          // Log only if processing was invoked.
+#          // If postParseRequest() failed, it has already logged it.
+#          // If context is null this was the start of a comet request
+#          // that failed and has already been logged.
+#          request.getMappingData().context.logAccess(
+#                  request, response,
+#                  System.currentTimeMillis() - req.getStartTime(),
+#                  false);
+#      }
+#  }
+#}
+# Access log valve @
+# org.apache.catalina.valves.AccessLogValve
+#     @Override
+#     public void log(CharArrayWriter message)
