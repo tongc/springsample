@@ -1,0 +1,10 @@
+<script>
+    var processJSON = function(json) {
+        document.body.innerHTML = JSON.stringify(json);
+    };
+    var scriptTag = document.createElement('SCRIPT');
+    scriptTag.src = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=processJSON&tags=monkey&tagmode=any&format=json";
+
+    document.getElementsByTagName('HEAD')[0].appendChild(scriptTag);
+</script>
+<body>sdafsdfasdf</body>
