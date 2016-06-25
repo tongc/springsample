@@ -53,7 +53,6 @@ public class Sample {
         for (ConsumerRecord<String, String> record : records) {
             System.out.println(record.offset() + ": " + record.value());
         }
-        System.out.println(featureProvider().getFeatures());
         return "consumer";
     }
 
