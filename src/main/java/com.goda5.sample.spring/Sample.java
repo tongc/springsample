@@ -11,9 +11,12 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.togglz.core.manager.EnumBasedFeatureProvider;
+import org.togglz.core.spi.FeatureProvider;
 
 import java.util.Properties;
 
@@ -50,11 +53,18 @@ public class Sample {
         for (ConsumerRecord<String, String> record : records) {
             System.out.println(record.offset() + ": " + record.value());
         }
+        System.out.println(featureProvider().getFeatures());
         return "consumer";
     }
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Sample.class, args);
+
+    }
+
+    @Bean
+    public FeatureProvider featureProvider() {
+        return new EnumBasedFeatureProvider(MyFeature.class);
     }
 
 }
