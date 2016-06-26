@@ -17,3 +17,7 @@
 	research:report:uea91968:applied materials inc. "new fab from china's xmc a needle mover" (neutral)
 	research:report:uea91967:lam research corp. "new fab from china's xmc a needle mover" (buy) chin
 	Exited Site
+
+
+git fetch origin
+git reset --hard origin/master
