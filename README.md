@@ -17,3 +17,8 @@
 	research:report:uea91968:applied materials inc. "new fab from china's xmc a needle mover" (neutral)
 	research:report:uea91967:lam research corp. "new fab from china's xmc a needle mover" (buy) chin
 	Exited Site
+
+
+//Setting your branch to exactly match the remote branch can be done in two steps:
+git fetch origin
+git reset --hard origin/master
