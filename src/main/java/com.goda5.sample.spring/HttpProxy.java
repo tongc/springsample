@@ -40,7 +40,7 @@ public class HttpProxy {
 
                                     @Override
                                     public HttpObject serverToProxyResponse(HttpObject httpObject) {
-                                        return null;
+                                        return httpObject;
                                     }
                                 };
                             }
