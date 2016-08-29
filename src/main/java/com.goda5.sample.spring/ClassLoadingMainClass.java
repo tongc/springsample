@@ -9,4 +9,10 @@ public class ClassLoadingMainClass {
         System.out.println("ClassLoadingMainClass parent classloader " + ClassLoadingMainClass.class.getClassLoader().getParent());
         System.out.println("ClassLoadingMainClass parent of parent classloader " + ClassLoadingMainClass.class.getClassLoader().getParent().getParent());
     }
+
+    public void main1() {
+        System.out.println("ClassLoadingMainClass classloader " + this.getClass().getClassLoader());
+        System.out.println("ClassLoadingMainClass parent classloader " + this.getClass().getClassLoader().getParent());
+        System.out.println("ClassLoadingMainClass parent of parent classloader " + this.getClass().getClassLoader().getParent().getParent());
+    }
 }

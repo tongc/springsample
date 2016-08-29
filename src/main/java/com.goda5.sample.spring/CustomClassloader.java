@@ -21,5 +21,35 @@ public class CustomClassloader {
         System.out.println("CustomClassloader parent of parent classloader " + CustomClassloader.class.getClassLoader().getParent().getParent());
         System.out.println("URLClassLoader classloader " + clsLoader);
         method.invoke(null, (Object) params);
+
+        ClassLoadingMainClass.main(null);
+
+        Class<?> aClass = new MyClassLoader().loadClass("com.goda5.sample.spring.ClassLoadingMainClass");
+        Method main = aClass.getMethod("main", String[].class);
+        main.invoke(null, (Object)params);
+        System.out.println(aClass.getClassLoader());
+    }
+
+
+    static class MyClassLoader extends ClassLoader {
+        public void invokeClassMethod(String classBinName, String methodName){
+            System.out.println("MyClassLoader " + classBinName);
+        }
+
+        public Class findClass(String name) {
+            System.out.println("MyClassLoader loading " + name);
+            byte[] b = loadClassData(name);
+            return defineClass(name, b, 0, b.length);
+        }
+
+        private byte[] loadClassData(String name) {
+            System.out.println("MyClassLoader loading data " + name);
+            return null;
+        }
+
+        public Class loadClass(String name) throws ClassNotFoundException {
+            System.out.println("MyClassLoader loading " + name);
+            return ClassLoadingMainClass.class;
+        }
     }
 }
