@@ -15,8 +15,10 @@ public class CustomClassloader {
         Class cls = clsLoader.loadClass("com.goda5.sample.spring.ClassLoadingMainClass");
         Method method = cls.getMethod("main", String[].class);
         String[] params = new String[2];
+
         System.out.println("CustomClassloader classloader " + CustomClassloader.class.getClassLoader());
         System.out.println("CustomClassloader parent classloader " + CustomClassloader.class.getClassLoader().getParent());
+        System.out.println("CustomClassloader parent of parent classloader " + CustomClassloader.class.getClassLoader().getParent().getParent());
         System.out.println("URLClassLoader classloader " + clsLoader);
         method.invoke(null, (Object) params);
     }
