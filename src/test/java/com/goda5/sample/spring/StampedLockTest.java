@@ -9,9 +9,10 @@ public class StampedLockTest {
     public static void main(String[] args) {
         lock.readLock();
         lock2.writeLock();
-        lock.tryUnlockRead();
-        lock.tryWriteLock();
-        lock2.tryUnlockWrite();
+        System.out.println(lock.tryUnlockRead());
+        System.out.println(lock.tryReadLock());
+        System.out.println(lock.tryWriteLock());
+        System.out.println(lock2.tryUnlockWrite());
         System.out.println(lock.isReadLocked());
         System.out.println(lock.isWriteLocked());
         System.out.println(lock2.isReadLocked());
